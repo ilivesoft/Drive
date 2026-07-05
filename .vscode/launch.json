@@ -1,0 +1,142 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "run_build (기본)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/cache_rag-poc-type2/scripts/run_build.py",
+      "python": "${workspaceFolder}/cache_rag-poc-type2/venv/Scripts/python.exe",
+      "args": [],
+      "cwd": "${workspaceFolder}/cache_rag-poc-type2",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/cache_rag-poc-type2/src"
+      },
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+    {
+      "name": "run_build --log",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/cache_rag-poc-type2/scripts/run_build.py",
+      "python": "${workspaceFolder}/cache_rag-poc-type2/venv/Scripts/python.exe",
+      "args": ["--log", "--log-level", "DEBUG"],
+      "cwd": "${workspaceFolder}/cache_rag-poc-type2",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/cache_rag-poc-type2/src"
+      },
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+    {
+      "name": "serve_demo (기본)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/cache_rag-poc-type2/scripts/serve_demo.py",
+      "python": "${workspaceFolder}/cache_rag-poc-type2/venv/Scripts/python.exe",
+      "args": [],
+      "cwd": "${workspaceFolder}/cache_rag-poc-type2",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/cache_rag-poc-type2/src"
+      },
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+    {
+      "name": "serve_demo --query",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/cache_rag-poc-type2/scripts/serve_demo.py",
+      "python": "${workspaceFolder}/cache_rag-poc-type2/venv/Scripts/python.exe",
+      "args": ["--query", "충전이 안돼요"],
+      "cwd": "${workspaceFolder}/cache_rag-poc-type2",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/cache_rag-poc-type2/src"
+      },
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+    {
+      "name": "serve_demo --build",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/cache_rag-poc-type2/scripts/serve_demo.py",
+      "python": "${workspaceFolder}/cache_rag-poc-type2/venv/Scripts/python.exe",
+      "args": ["--build"],
+      "cwd": "${workspaceFolder}/cache_rag-poc-type2",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/cache_rag-poc-type2/src"
+      },
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+    {
+      "name": "sweep_min_cluster (기본)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/cache_rag-poc-type2/scripts/sweep_min_cluster.py",
+      "python": "${workspaceFolder}/cache_rag-poc-type2/venv/Scripts/python.exe",
+      "args": [],
+      "cwd": "${workspaceFolder}/cache_rag-poc-type2",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/cache_rag-poc-type2/src"
+      },
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+    {
+      "name": "sweep_min_cluster --values --pg",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/cache_rag-poc-type2/scripts/sweep_min_cluster.py",
+      "python": "${workspaceFolder}/cache_rag-poc-type2/venv/Scripts/python.exe",
+      "args": ["--values", "2", "5", "8", "10", "15", "--pg", "드럼세탁기"],
+      "cwd": "${workspaceFolder}/cache_rag-poc-type2",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/cache_rag-poc-type2/src"
+      },
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+    {
+      "name": "api (uvicorn, 디버그)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": [
+        "cachepoc.api:create_app",
+        "--factory",
+        "--host", "0.0.0.0",
+        "--port", "18000"
+      ],
+      "python": "${workspaceFolder}/cache_rag-poc-type2/venv/Scripts/python.exe",
+      "cwd": "${workspaceFolder}/cache_rag-poc-type2",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/cache_rag-poc-type2/src"
+      },
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+    {
+      "name": "api (uvicorn, AUTO_BUILD)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": [
+        "cachepoc.api:create_app",
+        "--factory",
+        "--host", "0.0.0.0",
+        "--port", "18000"
+      ],
+      "python": "${workspaceFolder}/cache_rag-poc-type2/venv/Scripts/python.exe",
+      "cwd": "${workspaceFolder}/cache_rag-poc-type2",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/cache_rag-poc-type2/src",
+        "AUTO_BUILD": "true"
+      },
+      "console": "integratedTerminal",
+      "justMyCode": false
+    }
+  ]
+}
