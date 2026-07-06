@@ -1,0 +1,3155 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dineug/erd-editor/main/json-schema/schema.json",
+  "version": "3.0.0",
+  "settings": {
+    "width": 3200,
+    "height": 2000,
+    "scrollTop": -562.1667,
+    "scrollLeft": 0,
+    "zoomLevel": 0.7,
+    "show": 431,
+    "database": 4,
+    "databaseName": "cache_rag_v2",
+    "canvasType": "ERD",
+    "language": 1,
+    "tableNameCase": 2,
+    "columnNameCase": 2,
+    "bracketType": 1,
+    "relationshipDataTypeSync": true,
+    "relationshipOptimization": false,
+    "columnOrder": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "maxWidthComment": 200,
+    "ignoreSaveSettings": 0
+  },
+  "doc": {
+    "tableIds": [
+      "tbl-cs-tran-log",
+      "tbl-threshold-config",
+      "tbl-instance-flag",
+      "tbl-audit-log",
+      "tbl-signal-lexicon",
+      "tbl-collect-watermark",
+      "tbl-cache-entry",
+      "tbl-review-queue",
+      "tbl-revalidation-queue",
+      "tbl-evidence-index",
+      "tbl-entry-version",
+      "tbl-runtime-metric",
+      "tbl-cache-ko"
+    ],
+    "relationshipIds": [
+      "rel-cst-ce",
+      "rel-ce-rq",
+      "rel-ce-rvq",
+      "rel-ce-ei",
+      "rel-ce-ev",
+      "rel-ce-rm",
+      "rel-ce-ck"
+    ],
+    "indexIds": [],
+    "memoIds": [
+      "memo-overview"
+    ]
+  },
+  "collections": {
+    "tableEntities": {
+      "tbl-cs-tran-log": {
+        "id": "tbl-cs-tran-log",
+        "name": "cs_tran_log",
+        "comment": "기준 상담 로그",
+        "columnIds": [
+          "c-cst-id",
+          "c-cst-sessionid",
+          "c-cst-casenumber",
+          "c-cst-actiontype",
+          "c-cst-intention",
+          "c-cst-isfinalanswer",
+          "c-cst-isnfdresult",
+          "c-cst-product",
+          "c-cst-userquery",
+          "c-cst-augmentedquery",
+          "c-cst-memo",
+          "c-cst-input",
+          "c-cst-createdat",
+          "c-cst-isconnectagent"
+        ],
+        "seqColumnIds": [
+          "c-cst-id",
+          "c-cst-sessionid",
+          "c-cst-casenumber",
+          "c-cst-actiontype",
+          "c-cst-intention",
+          "c-cst-isfinalanswer",
+          "c-cst-isnfdresult",
+          "c-cst-product",
+          "c-cst-userquery",
+          "c-cst-augmentedquery",
+          "c-cst-memo",
+          "c-cst-input",
+          "c-cst-createdat",
+          "c-cst-isconnectagent"
+        ],
+        "ui": {
+          "x": 60,
+          "y": 40,
+          "zIndex": 2,
+          "widthName": 61,
+          "widthComment": 81,
+          "color": "#64748B"
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "tbl-threshold-config": {
+        "id": "tbl-threshold-config",
+        "name": "threshold_config",
+        "comment": "임계치 설정",
+        "columnIds": [
+          "c-thr-id",
+          "c-thr-product",
+          "c-thr-tau",
+          "c-thr-delta",
+          "c-thr-updatedat",
+          "c-thr-updatedby"
+        ],
+        "seqColumnIds": [
+          "c-thr-id",
+          "c-thr-product",
+          "c-thr-tau",
+          "c-thr-delta",
+          "c-thr-updatedat",
+          "c-thr-updatedby"
+        ],
+        "ui": {
+          "x": 560,
+          "y": 80,
+          "zIndex": 2,
+          "widthName": 90,
+          "widthComment": 65,
+          "color": "#CA8A04"
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "tbl-instance-flag": {
+        "id": "tbl-instance-flag",
+        "name": "instance_flag",
+        "comment": "인스턴스 플래그/킬스위치",
+        "columnIds": [
+          "c-if-instanceid",
+          "c-if-cacheenabled",
+          "c-if-updatedat",
+          "c-if-updatedby"
+        ],
+        "seqColumnIds": [
+          "c-if-instanceid",
+          "c-if-cacheenabled",
+          "c-if-updatedat",
+          "c-if-updatedby"
+        ],
+        "ui": {
+          "x": 900,
+          "y": 120,
+          "zIndex": 2,
+          "widthName": 70,
+          "widthComment": 142,
+          "color": "#DC2626"
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "tbl-audit-log": {
+        "id": "tbl-audit-log",
+        "name": "audit_log",
+        "comment": "감사 로그",
+        "columnIds": [
+          "c-al-id",
+          "c-al-actor",
+          "c-al-action",
+          "c-al-targettype",
+          "c-al-targetid",
+          "c-al-before",
+          "c-al-after",
+          "c-al-createdat"
+        ],
+        "seqColumnIds": [
+          "c-al-id",
+          "c-al-actor",
+          "c-al-action",
+          "c-al-targettype",
+          "c-al-targetid",
+          "c-al-before",
+          "c-al-after",
+          "c-al-createdat"
+        ],
+        "ui": {
+          "x": 1250,
+          "y": 60,
+          "zIndex": 2,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": "#6B7280"
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "tbl-signal-lexicon": {
+        "id": "tbl-signal-lexicon",
+        "name": "signal_lexicon",
+        "comment": "신호어 사전",
+        "columnIds": [
+          "c-sl-id",
+          "c-sl-lang",
+          "c-sl-category",
+          "c-sl-pattern",
+          "c-sl-enabled",
+          "c-sl-source",
+          "c-sl-createdat",
+          "c-sl-createdby"
+        ],
+        "seqColumnIds": [
+          "c-sl-id",
+          "c-sl-lang",
+          "c-sl-category",
+          "c-sl-pattern",
+          "c-sl-enabled",
+          "c-sl-source",
+          "c-sl-createdat",
+          "c-sl-createdby"
+        ],
+        "ui": {
+          "x": 1600,
+          "y": 40,
+          "zIndex": 2,
+          "widthName": 75,
+          "widthComment": 65,
+          "color": "#9333EA"
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "tbl-collect-watermark": {
+        "id": "tbl-collect-watermark",
+        "name": "collect_watermark",
+        "comment": "수집 워터마크",
+        "columnIds": [
+          "c-cw-source",
+          "c-cw-watermarkts",
+          "c-cw-overlaphours",
+          "c-cw-lastrunat"
+        ],
+        "seqColumnIds": [
+          "c-cw-source",
+          "c-cw-watermarkts",
+          "c-cw-overlaphours",
+          "c-cw-lastrunat"
+        ],
+        "ui": {
+          "x": 1950,
+          "y": 60,
+          "zIndex": 2,
+          "widthName": 97,
+          "widthComment": 77,
+          "color": "#0891B2"
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "tbl-cache-entry": {
+        "id": "tbl-cache-entry",
+        "name": "cache_entry",
+        "comment": "캐시 엔트리",
+        "columnIds": [
+          "c-ce-entryid",
+          "c-ce-product",
+          "c-ce-repquestion",
+          "c-ce-answer",
+          "c-ce-evidencedocids",
+          "c-ce-status",
+          "c-ce-isfixed",
+          "c-ce-version",
+          "c-ce-score",
+          "c-ce-demand",
+          "c-ce-recencyw",
+          "c-ce-cacheability",
+          "c-ce-supportscore",
+          "c-ce-contradiction",
+          "c-ce-judgenote",
+          "c-ce-fixedreason",
+          "c-ce-reviewdue",
+          "c-ce-stalesince",
+          "c-ce-reopencount",
+          "c-ce-createdat",
+          "c-ce-updatedat"
+        ],
+        "seqColumnIds": [
+          "c-ce-entryid",
+          "c-ce-product",
+          "c-ce-repquestion",
+          "c-ce-answer",
+          "c-ce-evidencedocids",
+          "c-ce-status",
+          "c-ce-isfixed",
+          "c-ce-version",
+          "c-ce-score",
+          "c-ce-demand",
+          "c-ce-recencyw",
+          "c-ce-cacheability",
+          "c-ce-supportscore",
+          "c-ce-contradiction",
+          "c-ce-judgenote",
+          "c-ce-fixedreason",
+          "c-ce-reviewdue",
+          "c-ce-stalesince",
+          "c-ce-reopencount",
+          "c-ce-createdat",
+          "c-ce-updatedat"
+        ],
+        "ui": {
+          "x": 350,
+          "y": 420,
+          "zIndex": 2,
+          "widthName": 64,
+          "widthComment": 65,
+          "color": "#2563EB"
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "tbl-review-queue": {
+        "id": "tbl-review-queue",
+        "name": "review_queue",
+        "comment": "검수 큐",
+        "columnIds": [
+          "c-rq-id",
+          "c-rq-entryid",
+          "c-rq-reason",
+          "c-rq-state",
+          "c-rq-supportscore",
+          "c-rq-note",
+          "c-rq-createdat",
+          "c-rq-resolvedat",
+          "c-rq-resolvedby"
+        ],
+        "seqColumnIds": [
+          "c-rq-id",
+          "c-rq-entryid",
+          "c-rq-reason",
+          "c-rq-state",
+          "c-rq-supportscore",
+          "c-rq-note",
+          "c-rq-createdat",
+          "c-rq-resolvedat",
+          "c-rq-resolvedby"
+        ],
+        "ui": {
+          "x": 0,
+          "y": 960,
+          "zIndex": 2,
+          "widthName": 74,
+          "widthComment": 60,
+          "color": "#EA580C"
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "tbl-revalidation-queue": {
+        "id": "tbl-revalidation-queue",
+        "name": "revalidation_queue",
+        "comment": "재검증 큐",
+        "columnIds": [
+          "c-rvq-id",
+          "c-rvq-entryid",
+          "c-rvq-trigger",
+          "c-rvq-docid",
+          "c-rvq-state",
+          "c-rvq-enqueuedat",
+          "c-rvq-processedat"
+        ],
+        "seqColumnIds": [
+          "c-rvq-id",
+          "c-rvq-entryid",
+          "c-rvq-trigger",
+          "c-rvq-docid",
+          "c-rvq-state",
+          "c-rvq-enqueuedat",
+          "c-rvq-processedat"
+        ],
+        "ui": {
+          "x": 350,
+          "y": 960,
+          "zIndex": 2,
+          "widthName": 102,
+          "widthComment": 60,
+          "color": "#EA580C"
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "tbl-evidence-index": {
+        "id": "tbl-evidence-index",
+        "name": "evidence_index",
+        "comment": "근거 역색인",
+        "columnIds": [
+          "c-ei-id",
+          "c-ei-docid",
+          "c-ei-entryid",
+          "c-ei-sourceurl",
+          "c-ei-createdat"
+        ],
+        "seqColumnIds": [
+          "c-ei-id",
+          "c-ei-docid",
+          "c-ei-entryid",
+          "c-ei-sourceurl",
+          "c-ei-createdat"
+        ],
+        "ui": {
+          "x": 680,
+          "y": 960,
+          "zIndex": 2,
+          "widthName": 82,
+          "widthComment": 65,
+          "color": "#0891B2"
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "tbl-entry-version": {
+        "id": "tbl-entry-version",
+        "name": "entry_version",
+        "comment": "버전 스냅샷",
+        "columnIds": [
+          "c-ev-id",
+          "c-ev-entryid",
+          "c-ev-version",
+          "c-ev-snapshot",
+          "c-ev-createdat",
+          "c-ev-createdby"
+        ],
+        "seqColumnIds": [
+          "c-ev-id",
+          "c-ev-entryid",
+          "c-ev-version",
+          "c-ev-snapshot",
+          "c-ev-createdat",
+          "c-ev-createdby"
+        ],
+        "ui": {
+          "x": 1000,
+          "y": 960,
+          "zIndex": 2,
+          "widthName": 72,
+          "widthComment": 65,
+          "color": "#16A34A"
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "tbl-runtime-metric": {
+        "id": "tbl-runtime-metric",
+        "name": "runtime_metric",
+        "comment": "런타임 메트릭",
+        "columnIds": [
+          "c-rm-id",
+          "c-rm-branch",
+          "c-rm-missreason",
+          "c-rm-entryid",
+          "c-rm-variant",
+          "c-rm-top1score",
+          "c-rm-top2score",
+          "c-rm-sessionid",
+          "c-rm-casenumber",
+          "c-rm-issimilarquery",
+          "c-rm-product",
+          "c-rm-createdat"
+        ],
+        "seqColumnIds": [
+          "c-rm-id",
+          "c-rm-branch",
+          "c-rm-missreason",
+          "c-rm-entryid",
+          "c-rm-variant",
+          "c-rm-top1score",
+          "c-rm-top2score",
+          "c-rm-sessionid",
+          "c-rm-casenumber",
+          "c-rm-issimilarquery",
+          "c-rm-product",
+          "c-rm-createdat"
+        ],
+        "ui": {
+          "x": 1330,
+          "y": 960,
+          "zIndex": 2,
+          "widthName": 82,
+          "widthComment": 77,
+          "color": "#4F46E5"
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "tbl-cache-ko": {
+        "id": "tbl-cache-ko",
+        "name": "cache_ko",
+        "comment": "ES 검색 인덱스",
+        "columnIds": [
+          "c-ck-entryid",
+          "c-ck-repquestion",
+          "c-ck-repembedding",
+          "c-ck-variants",
+          "c-ck-answer",
+          "c-ck-evidence",
+          "c-ck-evidencedocids",
+          "c-ck-product",
+          "c-ck-status",
+          "c-ck-isfixed",
+          "c-ck-version",
+          "c-ck-supportscore",
+          "c-ck-contradiction",
+          "c-ck-validatedat"
+        ],
+        "seqColumnIds": [
+          "c-ck-entryid",
+          "c-ck-repquestion",
+          "c-ck-repembedding",
+          "c-ck-variants",
+          "c-ck-answer",
+          "c-ck-evidence",
+          "c-ck-evidencedocids",
+          "c-ck-product",
+          "c-ck-status",
+          "c-ck-isfixed",
+          "c-ck-version",
+          "c-ck-supportscore",
+          "c-ck-contradiction",
+          "c-ck-validatedat"
+        ],
+        "ui": {
+          "x": 1680,
+          "y": 960,
+          "zIndex": 2,
+          "widthName": 60,
+          "widthComment": 81,
+          "color": "#DB2777"
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      }
+    },
+    "tableColumnEntities": {
+      "c-cst-id": {
+        "id": "c-cst-id",
+        "tableId": "tbl-cs-tran-log",
+        "name": "id",
+        "comment": "행 식별자",
+        "dataType": "BIGINT",
+        "default": "",
+        "options": 10,
+        "ui": {
+          "keys": 1,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-cst-sessionid": {
+        "id": "c-cst-sessionid",
+        "tableId": "tbl-cs-tran-log",
+        "name": "session_id",
+        "comment": "세션ID",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-cst-casenumber": {
+        "id": "c-cst-casenumber",
+        "tableId": "tbl-cs-tran-log",
+        "name": "case_number",
+        "comment": "케이스 번호",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 71,
+          "widthComment": 65,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-cst-actiontype": {
+        "id": "c-cst-actiontype",
+        "tableId": "tbl-cs-tran-log",
+        "name": "action_type",
+        "comment": "액션 타입(S/E)",
+        "dataType": "CHAR(1)",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 63,
+          "widthComment": 78,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-cst-intention": {
+        "id": "c-cst-intention",
+        "tableId": "tbl-cs-tran-log",
+        "name": "intention",
+        "comment": "의도 분류",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-cst-isfinalanswer": {
+        "id": "c-cst-isfinalanswer",
+        "tableId": "tbl-cs-tran-log",
+        "name": "is_final_answer",
+        "comment": "최종답변 여부",
+        "dataType": "CHAR(1)",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 80,
+          "widthComment": 77,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-cst-isnfdresult": {
+        "id": "c-cst-isnfdresult",
+        "tableId": "tbl-cs-tran-log",
+        "name": "is_nfd_result",
+        "comment": "NFD 여부",
+        "dataType": "CHAR(1)",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 67,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-cst-product": {
+        "id": "c-cst-product",
+        "tableId": "tbl-cs-tran-log",
+        "name": "product",
+        "comment": "제품",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-cst-userquery": {
+        "id": "c-cst-userquery",
+        "tableId": "tbl-cs-tran-log",
+        "name": "user_query",
+        "comment": "질의 원문",
+        "dataType": "TEXT",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-cst-augmentedquery": {
+        "id": "c-cst-augmentedquery",
+        "tableId": "tbl-cs-tran-log",
+        "name": "augmented_query",
+        "comment": "강화 질의",
+        "dataType": "TEXT",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 98,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-cst-memo": {
+        "id": "c-cst-memo",
+        "tableId": "tbl-cs-tran-log",
+        "name": "memo",
+        "comment": "메모",
+        "dataType": "TEXT",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-cst-input": {
+        "id": "c-cst-input",
+        "tableId": "tbl-cs-tran-log",
+        "name": "input",
+        "comment": "입력 JSON",
+        "dataType": "JSONB",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-cst-createdat": {
+        "id": "c-cst-createdat",
+        "tableId": "tbl-cs-tran-log",
+        "name": "created_at",
+        "comment": "생성 시각",
+        "dataType": "TIMESTAMP",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 65,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-cst-isconnectagent": {
+        "id": "c-cst-isconnectagent",
+        "tableId": "tbl-cs-tran-log",
+        "name": "is_connect_agent",
+        "comment": "미사용",
+        "dataType": "BOOLEAN",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 92,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-thr-id": {
+        "id": "c-thr-id",
+        "tableId": "tbl-threshold-config",
+        "name": "id",
+        "comment": "식별자",
+        "dataType": "BIGSERIAL",
+        "default": "",
+        "options": 10,
+        "ui": {
+          "keys": 1,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-thr-product": {
+        "id": "c-thr-product",
+        "tableId": "tbl-threshold-config",
+        "name": "product",
+        "comment": "제품(NULL=글로벌)",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 4,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 106,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-thr-tau": {
+        "id": "c-thr-tau",
+        "tableId": "tbl-threshold-config",
+        "name": "tau",
+        "comment": "τ(절대 임계)",
+        "dataType": "NUMERIC",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 66,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-thr-delta": {
+        "id": "c-thr-delta",
+        "tableId": "tbl-threshold-config",
+        "name": "delta",
+        "comment": "δ(모호성 마진)",
+        "dataType": "NUMERIC",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 80,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-thr-updatedat": {
+        "id": "c-thr-updatedat",
+        "tableId": "tbl-threshold-config",
+        "name": "updated_at",
+        "comment": "수정 시각",
+        "dataType": "TIMESTAMP",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 62,
+          "widthComment": 60,
+          "widthDataType": 65,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-thr-updatedby": {
+        "id": "c-thr-updatedby",
+        "tableId": "tbl-threshold-config",
+        "name": "updated_by",
+        "comment": "수정자",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 64,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-if-instanceid": {
+        "id": "c-if-instanceid",
+        "tableId": "tbl-instance-flag",
+        "name": "instance_id",
+        "comment": "인스턴스ID",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 10,
+        "ui": {
+          "keys": 1,
+          "widthName": 61,
+          "widthComment": 62,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-if-cacheenabled": {
+        "id": "c-if-cacheenabled",
+        "tableId": "tbl-instance-flag",
+        "name": "cache_enabled",
+        "comment": "캐시 활성",
+        "dataType": "BOOLEAN",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 80,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-if-updatedat": {
+        "id": "c-if-updatedat",
+        "tableId": "tbl-instance-flag",
+        "name": "updated_at",
+        "comment": "수정 시각",
+        "dataType": "TIMESTAMP",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 62,
+          "widthComment": 60,
+          "widthDataType": 65,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-if-updatedby": {
+        "id": "c-if-updatedby",
+        "tableId": "tbl-instance-flag",
+        "name": "updated_by",
+        "comment": "수정자",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 64,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-al-id": {
+        "id": "c-al-id",
+        "tableId": "tbl-audit-log",
+        "name": "id",
+        "comment": "식별자",
+        "dataType": "BIGSERIAL",
+        "default": "",
+        "options": 10,
+        "ui": {
+          "keys": 1,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-al-actor": {
+        "id": "c-al-actor",
+        "tableId": "tbl-audit-log",
+        "name": "actor",
+        "comment": "수행자",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-al-action": {
+        "id": "c-al-action",
+        "tableId": "tbl-audit-log",
+        "name": "action",
+        "comment": "동작",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-al-targettype": {
+        "id": "c-al-targettype",
+        "tableId": "tbl-audit-log",
+        "name": "target_type",
+        "comment": "대상 유형",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 62,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-al-targetid": {
+        "id": "c-al-targetid",
+        "tableId": "tbl-audit-log",
+        "name": "target_id",
+        "comment": "대상 ID",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-al-before": {
+        "id": "c-al-before",
+        "tableId": "tbl-audit-log",
+        "name": "before",
+        "comment": "변경 전",
+        "dataType": "JSONB",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-al-after": {
+        "id": "c-al-after",
+        "tableId": "tbl-audit-log",
+        "name": "after",
+        "comment": "변경 후",
+        "dataType": "JSONB",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-al-createdat": {
+        "id": "c-al-createdat",
+        "tableId": "tbl-audit-log",
+        "name": "created_at",
+        "comment": "발생 시각",
+        "dataType": "TIMESTAMP",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 65,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-sl-id": {
+        "id": "c-sl-id",
+        "tableId": "tbl-signal-lexicon",
+        "name": "id",
+        "comment": "식별자",
+        "dataType": "BIGSERIAL",
+        "default": "",
+        "options": 10,
+        "ui": {
+          "keys": 1,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-sl-lang": {
+        "id": "c-sl-lang",
+        "tableId": "tbl-signal-lexicon",
+        "name": "lang",
+        "comment": "언어",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-sl-category": {
+        "id": "c-sl-category",
+        "tableId": "tbl-signal-lexicon",
+        "name": "category",
+        "comment": "분류(부정/완료/재시도)",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 127,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-sl-pattern": {
+        "id": "c-sl-pattern",
+        "tableId": "tbl-signal-lexicon",
+        "name": "pattern",
+        "comment": "패턴",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-sl-enabled": {
+        "id": "c-sl-enabled",
+        "tableId": "tbl-signal-lexicon",
+        "name": "enabled",
+        "comment": "활성",
+        "dataType": "BOOLEAN",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-sl-source": {
+        "id": "c-sl-source",
+        "tableId": "tbl-signal-lexicon",
+        "name": "source",
+        "comment": "출처(seed/manual)",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 102,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-sl-createdat": {
+        "id": "c-sl-createdat",
+        "tableId": "tbl-signal-lexicon",
+        "name": "created_at",
+        "comment": "등록 시각",
+        "dataType": "TIMESTAMP",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 65,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-sl-createdby": {
+        "id": "c-sl-createdby",
+        "tableId": "tbl-signal-lexicon",
+        "name": "created_by",
+        "comment": "등록자",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-cw-source": {
+        "id": "c-cw-source",
+        "tableId": "tbl-collect-watermark",
+        "name": "source",
+        "comment": "소스명",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 10,
+        "ui": {
+          "keys": 1,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-cw-watermarkts": {
+        "id": "c-cw-watermarkts",
+        "tableId": "tbl-collect-watermark",
+        "name": "watermark_ts",
+        "comment": "워터마크 시각",
+        "dataType": "TIMESTAMP",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 72,
+          "widthComment": 77,
+          "widthDataType": 65,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-cw-overlaphours": {
+        "id": "c-cw-overlaphours",
+        "tableId": "tbl-collect-watermark",
+        "name": "overlap_hours",
+        "comment": "재스캔 폭(기본 2h)",
+        "dataType": "INTEGER",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 76,
+          "widthComment": 101,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-cw-lastrunat": {
+        "id": "c-cw-lastrunat",
+        "tableId": "tbl-collect-watermark",
+        "name": "last_run_at",
+        "comment": "마지막 실행",
+        "dataType": "TIMESTAMP",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 65,
+          "widthDataType": 65,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ce-entryid": {
+        "id": "c-ce-entryid",
+        "tableId": "tbl-cache-entry",
+        "name": "entry_id",
+        "comment": "엔트리ID",
+        "dataType": "VARCHAR(16)",
+        "default": "",
+        "options": 10,
+        "ui": {
+          "keys": 3,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 75,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ce-product": {
+        "id": "c-ce-product",
+        "tableId": "tbl-cache-entry",
+        "name": "product",
+        "comment": "제품",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ce-repquestion": {
+        "id": "c-ce-repquestion",
+        "tableId": "tbl-cache-entry",
+        "name": "rep_question",
+        "comment": "대표질문",
+        "dataType": "TEXT",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 71,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ce-answer": {
+        "id": "c-ce-answer",
+        "tableId": "tbl-cache-entry",
+        "name": "answer",
+        "comment": "대표답변",
+        "dataType": "TEXT",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ce-evidencedocids": {
+        "id": "c-ce-evidencedocids",
+        "tableId": "tbl-cache-entry",
+        "name": "evidence_doc_ids",
+        "comment": "근거 문서ID",
+        "dataType": "JSONB",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 94,
+          "widthComment": 65,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ce-status": {
+        "id": "c-ce-status",
+        "tableId": "tbl-cache-entry",
+        "name": "status",
+        "comment": "상태(draft/review/active/stale/deprecated)",
+        "dataType": "VARCHAR(12)",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 226,
+          "widthDataType": 75,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ce-isfixed": {
+        "id": "c-ce-isfixed",
+        "tableId": "tbl-cache-entry",
+        "name": "is_fixed",
+        "comment": "고정답변",
+        "dataType": "BOOLEAN",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ce-version": {
+        "id": "c-ce-version",
+        "tableId": "tbl-cache-entry",
+        "name": "version",
+        "comment": "버전",
+        "dataType": "INTEGER",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ce-score": {
+        "id": "c-ce-score",
+        "tableId": "tbl-cache-entry",
+        "name": "score",
+        "comment": "후보 점수",
+        "dataType": "NUMERIC",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ce-demand": {
+        "id": "c-ce-demand",
+        "tableId": "tbl-cache-entry",
+        "name": "demand",
+        "comment": "수요",
+        "dataType": "INTEGER",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ce-recencyw": {
+        "id": "c-ce-recencyw",
+        "tableId": "tbl-cache-entry",
+        "name": "recency_w",
+        "comment": "최근성 가중",
+        "dataType": "NUMERIC",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 65,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ce-cacheability": {
+        "id": "c-ce-cacheability",
+        "tableId": "tbl-cache-entry",
+        "name": "cacheability",
+        "comment": "캐시가치",
+        "dataType": "NUMERIC",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 64,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ce-supportscore": {
+        "id": "c-ce-supportscore",
+        "tableId": "tbl-cache-entry",
+        "name": "support_score",
+        "comment": "검증 부합점수",
+        "dataType": "NUMERIC",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 76,
+          "widthComment": 77,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ce-contradiction": {
+        "id": "c-ce-contradiction",
+        "tableId": "tbl-cache-entry",
+        "name": "contradiction",
+        "comment": "모순 여부",
+        "dataType": "BOOLEAN",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 72,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ce-judgenote": {
+        "id": "c-ce-judgenote",
+        "tableId": "tbl-cache-entry",
+        "name": "judge_note",
+        "comment": "검증 노트",
+        "dataType": "TEXT",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 61,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ce-fixedreason": {
+        "id": "c-ce-fixedreason",
+        "tableId": "tbl-cache-entry",
+        "name": "fixed_reason",
+        "comment": "고정 사유",
+        "dataType": "TEXT",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 68,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ce-reviewdue": {
+        "id": "c-ce-reviewdue",
+        "tableId": "tbl-cache-entry",
+        "name": "review_due",
+        "comment": "재검토 기한",
+        "dataType": "TIMESTAMP",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 61,
+          "widthComment": 65,
+          "widthDataType": 65,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ce-stalesince": {
+        "id": "c-ce-stalesince",
+        "tableId": "tbl-cache-entry",
+        "name": "stale_since",
+        "comment": "stale 전이 시각",
+        "dataType": "TIMESTAMP",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 81,
+          "widthDataType": 65,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ce-reopencount": {
+        "id": "c-ce-reopencount",
+        "tableId": "tbl-cache-entry",
+        "name": "reopen_count",
+        "comment": "reopen 수",
+        "dataType": "INTEGER",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 75,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ce-createdat": {
+        "id": "c-ce-createdat",
+        "tableId": "tbl-cache-entry",
+        "name": "created_at",
+        "comment": "생성 시각",
+        "dataType": "TIMESTAMP",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 65,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ce-updatedat": {
+        "id": "c-ce-updatedat",
+        "tableId": "tbl-cache-entry",
+        "name": "updated_at",
+        "comment": "수정 시각",
+        "dataType": "TIMESTAMP",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 62,
+          "widthComment": 60,
+          "widthDataType": 65,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-rq-id": {
+        "id": "c-rq-id",
+        "tableId": "tbl-review-queue",
+        "name": "id",
+        "comment": "식별자",
+        "dataType": "BIGSERIAL",
+        "default": "",
+        "options": 10,
+        "ui": {
+          "keys": 1,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-rq-entryid": {
+        "id": "c-rq-entryid",
+        "tableId": "tbl-review-queue",
+        "name": "entry_id",
+        "comment": "엔트리ID",
+        "dataType": "VARCHAR(16)",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 2,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 75,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-rq-reason": {
+        "id": "c-rq-reason",
+        "tableId": "tbl-review-queue",
+        "name": "reason",
+        "comment": "사유(검증미달/모순/noise)",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 143,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-rq-state": {
+        "id": "c-rq-state",
+        "tableId": "tbl-review-queue",
+        "name": "state",
+        "comment": "처리상태(pending/approved/rejected)",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 204,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-rq-supportscore": {
+        "id": "c-rq-supportscore",
+        "tableId": "tbl-review-queue",
+        "name": "support_score",
+        "comment": "부합 점수",
+        "dataType": "NUMERIC",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 76,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-rq-note": {
+        "id": "c-rq-note",
+        "tableId": "tbl-review-queue",
+        "name": "note",
+        "comment": "비고",
+        "dataType": "TEXT",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-rq-createdat": {
+        "id": "c-rq-createdat",
+        "tableId": "tbl-review-queue",
+        "name": "created_at",
+        "comment": "등록 시각",
+        "dataType": "TIMESTAMP",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 65,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-rq-resolvedat": {
+        "id": "c-rq-resolvedat",
+        "tableId": "tbl-review-queue",
+        "name": "resolved_at",
+        "comment": "처리 시각",
+        "dataType": "TIMESTAMP",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 62,
+          "widthComment": 60,
+          "widthDataType": 65,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-rq-resolvedby": {
+        "id": "c-rq-resolvedby",
+        "tableId": "tbl-review-queue",
+        "name": "resolved_by",
+        "comment": "처리자",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 64,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-rvq-id": {
+        "id": "c-rvq-id",
+        "tableId": "tbl-revalidation-queue",
+        "name": "id",
+        "comment": "식별자",
+        "dataType": "BIGSERIAL",
+        "default": "",
+        "options": 10,
+        "ui": {
+          "keys": 1,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-rvq-entryid": {
+        "id": "c-rvq-entryid",
+        "tableId": "tbl-revalidation-queue",
+        "name": "entry_id",
+        "comment": "엔트리ID",
+        "dataType": "VARCHAR(16)",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 2,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 75,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-rvq-trigger": {
+        "id": "c-rvq-trigger",
+        "tableId": "tbl-revalidation-queue",
+        "name": "trigger",
+        "comment": "트리거(doc_change/404/manual)",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 176,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-rvq-docid": {
+        "id": "c-rvq-docid",
+        "tableId": "tbl-revalidation-queue",
+        "name": "doc_id",
+        "comment": "문서ID",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-rvq-state": {
+        "id": "c-rvq-state",
+        "tableId": "tbl-revalidation-queue",
+        "name": "state",
+        "comment": "처리상태(queued/processing/done/failed)",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 225,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-rvq-enqueuedat": {
+        "id": "c-rvq-enqueuedat",
+        "tableId": "tbl-revalidation-queue",
+        "name": "enqueued_at",
+        "comment": "적재 시각",
+        "dataType": "TIMESTAMP",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 70,
+          "widthComment": 60,
+          "widthDataType": 65,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-rvq-processedat": {
+        "id": "c-rvq-processedat",
+        "tableId": "tbl-revalidation-queue",
+        "name": "processed_at",
+        "comment": "처리 시각",
+        "dataType": "TIMESTAMP",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 71,
+          "widthComment": 60,
+          "widthDataType": 65,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ei-id": {
+        "id": "c-ei-id",
+        "tableId": "tbl-evidence-index",
+        "name": "id",
+        "comment": "식별자",
+        "dataType": "BIGSERIAL",
+        "default": "",
+        "options": 10,
+        "ui": {
+          "keys": 1,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ei-docid": {
+        "id": "c-ei-docid",
+        "tableId": "tbl-evidence-index",
+        "name": "doc_id",
+        "comment": "문서ID",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ei-entryid": {
+        "id": "c-ei-entryid",
+        "tableId": "tbl-evidence-index",
+        "name": "entry_id",
+        "comment": "엔트리ID",
+        "dataType": "VARCHAR(16)",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 2,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 75,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ei-sourceurl": {
+        "id": "c-ei-sourceurl",
+        "tableId": "tbl-evidence-index",
+        "name": "source_url",
+        "comment": "출처 URL",
+        "dataType": "TEXT",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ei-createdat": {
+        "id": "c-ei-createdat",
+        "tableId": "tbl-evidence-index",
+        "name": "created_at",
+        "comment": "생성 시각",
+        "dataType": "TIMESTAMP",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 65,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ev-id": {
+        "id": "c-ev-id",
+        "tableId": "tbl-entry-version",
+        "name": "id",
+        "comment": "식별자",
+        "dataType": "BIGSERIAL",
+        "default": "",
+        "options": 10,
+        "ui": {
+          "keys": 1,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ev-entryid": {
+        "id": "c-ev-entryid",
+        "tableId": "tbl-entry-version",
+        "name": "entry_id",
+        "comment": "엔트리ID",
+        "dataType": "VARCHAR(16)",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 2,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 75,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ev-version": {
+        "id": "c-ev-version",
+        "tableId": "tbl-entry-version",
+        "name": "version",
+        "comment": "버전",
+        "dataType": "INTEGER",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ev-snapshot": {
+        "id": "c-ev-snapshot",
+        "tableId": "tbl-entry-version",
+        "name": "snapshot",
+        "comment": "스냅샷(롤백 복원용)",
+        "dataType": "JSONB",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 109,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ev-createdat": {
+        "id": "c-ev-createdat",
+        "tableId": "tbl-entry-version",
+        "name": "created_at",
+        "comment": "생성 시각",
+        "dataType": "TIMESTAMP",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 65,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ev-createdby": {
+        "id": "c-ev-createdby",
+        "tableId": "tbl-entry-version",
+        "name": "created_by",
+        "comment": "생성자",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-rm-id": {
+        "id": "c-rm-id",
+        "tableId": "tbl-runtime-metric",
+        "name": "id",
+        "comment": "식별자",
+        "dataType": "BIGSERIAL",
+        "default": "",
+        "options": 10,
+        "ui": {
+          "keys": 1,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-rm-branch": {
+        "id": "c-rm-branch",
+        "tableId": "tbl-runtime-metric",
+        "name": "branch",
+        "comment": "분기(A/B)",
+        "dataType": "CHAR(1)",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-rm-missreason": {
+        "id": "c-rm-missreason",
+        "tableId": "tbl-runtime-metric",
+        "name": "miss_reason",
+        "comment": "미스 사유",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 66,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-rm-entryid": {
+        "id": "c-rm-entryid",
+        "tableId": "tbl-runtime-metric",
+        "name": "entry_id",
+        "comment": "매칭 엔트리",
+        "dataType": "VARCHAR(16)",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 2,
+          "widthName": 60,
+          "widthComment": 65,
+          "widthDataType": 75,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-rm-variant": {
+        "id": "c-rm-variant",
+        "tableId": "tbl-runtime-metric",
+        "name": "variant",
+        "comment": "매칭 변형",
+        "dataType": "TEXT",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-rm-top1score": {
+        "id": "c-rm-top1score",
+        "tableId": "tbl-runtime-metric",
+        "name": "top1_score",
+        "comment": "top1 점수",
+        "dataType": "NUMERIC",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-rm-top2score": {
+        "id": "c-rm-top2score",
+        "tableId": "tbl-runtime-metric",
+        "name": "top2_score",
+        "comment": "top2 점수",
+        "dataType": "NUMERIC",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-rm-sessionid": {
+        "id": "c-rm-sessionid",
+        "tableId": "tbl-runtime-metric",
+        "name": "session_id",
+        "comment": "세션ID",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-rm-casenumber": {
+        "id": "c-rm-casenumber",
+        "tableId": "tbl-runtime-metric",
+        "name": "case_number",
+        "comment": "케이스 번호",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 71,
+          "widthComment": 65,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-rm-issimilarquery": {
+        "id": "c-rm-issimilarquery",
+        "tableId": "tbl-runtime-metric",
+        "name": "is_similar_query",
+        "comment": "유사질의",
+        "dataType": "BOOLEAN",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 84,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-rm-product": {
+        "id": "c-rm-product",
+        "tableId": "tbl-runtime-metric",
+        "name": "product",
+        "comment": "제품",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-rm-createdat": {
+        "id": "c-rm-createdat",
+        "tableId": "tbl-runtime-metric",
+        "name": "created_at",
+        "comment": "판정 시각",
+        "dataType": "TIMESTAMP",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 65,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ck-entryid": {
+        "id": "c-ck-entryid",
+        "tableId": "tbl-cache-ko",
+        "name": "entry_id",
+        "comment": "문서ID(PG entry_id 동일)",
+        "dataType": "keyword",
+        "default": "",
+        "options": 10,
+        "ui": {
+          "keys": 3,
+          "widthName": 60,
+          "widthComment": 132,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ck-repquestion": {
+        "id": "c-ck-repquestion",
+        "tableId": "tbl-cache-ko",
+        "name": "rep_question",
+        "comment": "대표질문",
+        "dataType": "text",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 71,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ck-repembedding": {
+        "id": "c-ck-repembedding",
+        "tableId": "tbl-cache-ko",
+        "name": "rep_embedding",
+        "comment": "대표질문 임베딩(dims=1024,cosine)",
+        "dataType": "dense_vector",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 85,
+          "widthComment": 192,
+          "widthDataType": 71,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ck-variants": {
+        "id": "c-ck-variants",
+        "tableId": "tbl-cache-ko",
+        "name": "variants",
+        "comment": "변형 표면형(저장만·색인X)",
+        "dataType": "object",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 142,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ck-answer": {
+        "id": "c-ck-answer",
+        "tableId": "tbl-cache-ko",
+        "name": "answer",
+        "comment": "대표답변",
+        "dataType": "text",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ck-evidence": {
+        "id": "c-ck-evidence",
+        "tableId": "tbl-cache-ko",
+        "name": "evidence",
+        "comment": "근거",
+        "dataType": "text",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ck-evidencedocids": {
+        "id": "c-ck-evidencedocids",
+        "tableId": "tbl-cache-ko",
+        "name": "evidence_doc_ids",
+        "comment": "근거 문서ID",
+        "dataType": "keyword",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 94,
+          "widthComment": 65,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ck-product": {
+        "id": "c-ck-product",
+        "tableId": "tbl-cache-ko",
+        "name": "product",
+        "comment": "제품",
+        "dataType": "keyword",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ck-status": {
+        "id": "c-ck-status",
+        "tableId": "tbl-cache-ko",
+        "name": "status",
+        "comment": "상태(비귀위 사본)",
+        "dataType": "keyword",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 97,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ck-isfixed": {
+        "id": "c-ck-isfixed",
+        "tableId": "tbl-cache-ko",
+        "name": "is_fixed",
+        "comment": "고정답변 여부",
+        "dataType": "boolean",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 77,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ck-version": {
+        "id": "c-ck-version",
+        "tableId": "tbl-cache-ko",
+        "name": "version",
+        "comment": "버전",
+        "dataType": "integer",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ck-supportscore": {
+        "id": "c-ck-supportscore",
+        "tableId": "tbl-cache-ko",
+        "name": "support_score",
+        "comment": "검증 부합점수",
+        "dataType": "float",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 76,
+          "widthComment": 77,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ck-contradiction": {
+        "id": "c-ck-contradiction",
+        "tableId": "tbl-cache-ko",
+        "name": "contradiction",
+        "comment": "모순 여부",
+        "dataType": "boolean",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 72,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "c-ck-validatedat": {
+        "id": "c-ck-validatedat",
+        "tableId": "tbl-cache-ko",
+        "name": "validated_at",
+        "comment": "검증 시각",
+        "dataType": "date",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 65,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      }
+    },
+    "relationshipEntities": {
+      "rel-cst-ce": {
+        "id": "rel-cst-ce",
+        "identification": true,
+        "relationshipType": 4,
+        "startRelationshipType": 2,
+        "start": {
+          "tableId": "tbl-cs-tran-log",
+          "columnIds": [
+            "c-cst-id"
+          ],
+          "x": 486,
+          "y": 236,
+          "direction": 2
+        },
+        "end": {
+          "tableId": "tbl-cache-entry",
+          "columnIds": [
+            "c-ce-entryid"
+          ],
+          "x": 627,
+          "y": 420,
+          "direction": 4
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "rel-ce-rq": {
+        "id": "rel-ce-rq",
+        "identification": false,
+        "relationshipType": 4,
+        "startRelationshipType": 1,
+        "start": {
+          "tableId": "tbl-cache-entry",
+          "columnIds": [
+            "c-ce-entryid"
+          ],
+          "x": 442.33333333333337,
+          "y": 980,
+          "direction": 8
+        },
+        "end": {
+          "tableId": "tbl-review-queue",
+          "columnIds": [
+            "c-rq-entryid"
+          ],
+          "x": 536,
+          "y": 1096,
+          "direction": 2
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "rel-ce-rvq": {
+        "id": "rel-ce-rvq",
+        "identification": false,
+        "relationshipType": 4,
+        "startRelationshipType": 1,
+        "start": {
+          "tableId": "tbl-cache-entry",
+          "columnIds": [
+            "c-ce-entryid"
+          ],
+          "x": 627,
+          "y": 980,
+          "direction": 8
+        },
+        "end": {
+          "tableId": "tbl-revalidation-queue",
+          "columnIds": [
+            "c-rvq-entryid"
+          ],
+          "x": 615.5,
+          "y": 960,
+          "direction": 4
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "rel-ce-ei": {
+        "id": "rel-ce-ei",
+        "identification": false,
+        "relationshipType": 4,
+        "startRelationshipType": 1,
+        "start": {
+          "tableId": "tbl-cache-entry",
+          "columnIds": [
+            "c-ce-entryid"
+          ],
+          "x": 811.6666666666666,
+          "y": 980,
+          "direction": 8
+        },
+        "end": {
+          "tableId": "tbl-evidence-index",
+          "columnIds": [
+            "c-ei-entryid"
+          ],
+          "x": 680,
+          "y": 1048,
+          "direction": 1
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "rel-ce-ev": {
+        "id": "rel-ce-ev",
+        "identification": false,
+        "relationshipType": 4,
+        "startRelationshipType": 1,
+        "start": {
+          "tableId": "tbl-cache-entry",
+          "columnIds": [
+            "c-ce-entryid"
+          ],
+          "x": 904,
+          "y": 513.3333333333334,
+          "direction": 2
+        },
+        "end": {
+          "tableId": "tbl-entry-version",
+          "columnIds": [
+            "c-ev-entryid"
+          ],
+          "x": 1000,
+          "y": 1060,
+          "direction": 1
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "rel-ce-rm": {
+        "id": "rel-ce-rm",
+        "identification": false,
+        "relationshipType": 4,
+        "startRelationshipType": 1,
+        "start": {
+          "tableId": "tbl-cache-entry",
+          "columnIds": [
+            "c-ce-entryid"
+          ],
+          "x": 904,
+          "y": 700,
+          "direction": 2
+        },
+        "end": {
+          "tableId": "tbl-runtime-metric",
+          "columnIds": [
+            "c-rm-entryid"
+          ],
+          "x": 1330,
+          "y": 1132,
+          "direction": 1
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      },
+      "rel-ce-ck": {
+        "id": "rel-ce-ck",
+        "identification": true,
+        "relationshipType": 4,
+        "startRelationshipType": 2,
+        "start": {
+          "tableId": "tbl-cache-entry",
+          "columnIds": [
+            "c-ce-entryid"
+          ],
+          "x": 904,
+          "y": 886.6666666666666,
+          "direction": 2
+        },
+        "end": {
+          "tableId": "tbl-cache-ko",
+          "columnIds": [
+            "c-ck-entryid"
+          ],
+          "x": 1680,
+          "y": 1156,
+          "direction": 1
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      }
+    },
+    "indexEntities": {},
+    "indexColumnEntities": {},
+    "memoEntities": {
+      "memo-overview": {
+        "id": "memo-overview",
+        "value": "Cache RAG 운영 스키마 v2 (첨부 이미지 기준)\n========================================\n\n허브: cache_entry (VARCHAR(16) entry_id)\n\n독립 테이블(관계선 없음, 참조용/운영설정):\n  cs_tran_log        - 기준 상담 로그 (오프라인 입력 원천)\n  threshold_config   - 제품별/글로벌 임계치(tau, delta)\n  instance_flag      - 인스턴스 단위 킬스위치\n  audit_log          - 전역 감사 로그\n  signal_lexicon     - 신호어(부정/완료/재시도) 사전\n  collect_watermark  - 소스별 수집 워터마크\n\ncache_entry 연결 (1:N, 점선=비식별):\n  -> review_queue        (검수 대상)\n  -> revalidation_queue  (재검증 대상)\n  -> evidence_index      (근거 역색인)\n  -> entry_version       (버전 스냅샷)\n  -> runtime_metric      (매칭 엔트리, 분기 A/B)\n  -> cache_ko            (ES 색인, PG-ES 간 entry_id 동기화)\n\n참고: cs_tran_log -> cache_entry(빌드·입력)와 cache_entry -> cache_ko(ES 색인)는\n실제 FK 제약이 아닌 파이프라인/동기화 상의 계보 관계입니다.",
+        "ui": {
+          "x": 60,
+          "y": 1300,
+          "zIndex": 1,
+          "width": 680,
+          "height": 420,
+          "color": "#FEF3C7"
+        },
+        "meta": {
+          "updateAt": 1778000000000,
+          "createAt": 1778000000000
+        }
+      }
+    }
+  }
+}
